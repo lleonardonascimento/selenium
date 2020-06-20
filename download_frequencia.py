@@ -1,9 +1,15 @@
 from selenium.webdriver import Firefox
 from time import sleep
 
+# lê o arquivo e armazena o conteudo em 'f'
+with open("pw.txt", "r") as target:
+    f = target.read()
 
-matricula = 123
-senha = 123
+# como o retorno de uma string com o metodo split é uma lista
+# armazena em sua respectivas var
+(matricula, senha) = f.split(" ")
+print(matricula, senha)
+
 # alterado para evitar erro de linha muito longa!!
 url = "http://177.70.147.197:8080/sig/app.html#/servicosonline/portal-servidor"
 
@@ -22,18 +28,18 @@ driver.find_element_by_xpath('//*[@id="52inputText"]').send_keys(senha)
 # Clica em validar
 driver.find_element_by_xpath('//*[@aria-label="Validar"]').click()
 
-sleep(1)
+# sleep(1)
 
-# clica em ponto eletrônico
-driver.find_element_by_xpath('//*[@heading="Ponto eletrônico"]').click()
+# # clica em ponto eletrônico
+# driver.find_element_by_xpath('//*[@heading="Ponto eletrônico"]').click()
 
-sleep(5)
+# sleep(5)
 
-# seleciona a linha da tabela com a matrícula correta
-driver.find_element_by_xpath(
-    '//div[@class="ui-grid-viewport"]//div//div//div//div//div[@title="22397"'
-).click()
+# # seleciona a linha da tabela com a matrícula correta
+# driver.find_element_by_xpath(
+#     '//div[@class="ui-grid-viewport"]//div//div//div//div//div[@title="22397"'
+# ).click()
 
-sleep(5)
+# sleep(5)
 
-driver.find_element_by_xpath('//*[@title="imprimir"]').click()
+# driver.find_element_by_xpath('//*[@title="imprimir"]').click()
