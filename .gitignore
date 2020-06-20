@@ -1,3 +1,4 @@
 .editorconfig
 .mypy_cache*
 .vscode
+*.log
